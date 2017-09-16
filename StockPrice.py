@@ -32,8 +32,8 @@ df['label'] = df[forecast_col].shift(-forecast_out) # Note: we are shifting up A
 #preprocessing
 X = np.array(df.drop(['label'], 1))
 X = preprocessing.scale(X) # when adding additional data in future make sure to scale them alongwith training data
-X = X[:-forecast_out]
 X_future = X[-forecast_out:] # this is the last rows for which we are going to predicat the closing price
+X = X[:-forecast_out]
 df.dropna(inplace=True)
 y = np.array(df['label'])  # convention to use X for features and y for label
 
